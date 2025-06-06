@@ -1,35 +1,47 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
-  <title>2048-undo</title>
+  <title>2048-AI Powered</title>
 
   <link href="style/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="style/ai.css">
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
 
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="viewport"
+    content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
+
 <body>
   <div class="container">
     <div class="heading">
-      <h1 class="title">2048-undo</h1>
+      <h1 class="title">2048</h1>
       <div class="scores-container">
         <div class="score-container">0</div>
         <div class="best-container">0</div>
       </div>
     </div>
-    <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
-    <p>Hit 'Z' to <a href="#" onclick="handle_undo()">take back one or more moves</a>.</p>
+    <p class="game-intro">2048, now smarter. Let the AI start <strong>— or jump in anytime!</strong>
+    </p>
+
+    <div class="ai-button-container">
+      <a class="ai-button" onclick="handle_undo()" title="Undo last move">Undo</a>
+      <a class="ai-button" onclick="step()" id="ai-step" title="Let AI make the next move">Next</a>
+      <a class="ai-button" onclick="stopAI()" id="ai-stop" title="Stop AI" style="display:none">Stop</a>
+      <a class="ai-button" onclick="runAI()" id="ai-start" title="Let AI play automatically">Start</a>
+    </div>
+
 
     <div class="game-container">
       <div class="game-message">
         <p></p>
         <div class="lower">
-	        <a class="keep-playing-button">Keep going</a>
+          <a class="keep-playing-button">Keep going</a>
           <a class="retry-button">Try again</a>
         </div>
       </div>
@@ -67,16 +79,21 @@
     </div>
 
     <p class="game-explanation">
-      <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>
+      <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two
+      tiles with the same number touch, they <strong>merge into one!</strong>
     </p>
     <hr>
     <p>
-    Original game by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a> Based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a>
-    Undo-mod by <a href="http://quaxio.com/">Alok Menghrajani</a>, <a href="https://github.com/alokmenghrajani/2048">source</a>.
+      Original game by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a> Based on <a
+        href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and
+      conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a>
+      Undo-mod by <a href="http://quaxio.com/">Alok Menghrajani</a>.
+      AI by <a href="https://francyorange.github.io/">Yanling Peng</a>, <a
+        href="https://github.com/francyorange/2048-AI">source</a>.
     </p>
   </div>
 
-  <script src="js/seedrandom.js"></script>
+  <script src=" js/seedrandom.js"></script>
   <script src="js/animframe_polyfill.js"></script>
   <script src="js/keyboard_input_manager.js"></script>
   <script src="js/html_actuator.js"></script>
@@ -85,16 +102,9 @@
   <script src="js/local_score_manager.js"></script>
   <script src="js/game_manager.js"></script>
   <script src="js/application.js"></script>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-2373559-12', 'quaxio.com');
-  ga('send', 'pageview');
-</script>
+  <script src="js/ai.js"></script>
+  <script src="js/debug.js"></script>
 
 </body>
+
 </html>
